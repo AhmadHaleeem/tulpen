@@ -1,0 +1,38 @@
+title = "Post Page"
+url = "/post-page"
+layout = "default"
+is_hidden = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 200
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "singlepostpage"
+postPage = "singlepostpage"
+==
+{% set posts = blogPosts.posts %}
+<div class="container">
+    <section id="section" style="margin-top: -300px">
+        <div class="masonry">
+            {% for post in posts %}
+            {% if post.display_in_homepage == 1 %}
+            <div class="block">
+                {% if post.title %}
+                <h3 ><a style="text-decoration: none" href="{{ post.url }}">{{ post.title }}</a></h3>
+                {% endif %}
+                {% if post.featured_images %}
+                <a href="{{post.url}}"><img   src="{{post.featured_images.thumb(1700,1700)}}"></a>
+                {% else %}
+                {% for image in post.poster_images %}
+                <img  src="{{image.thumb(300,400)}}">
+                {% endfor %}
+                {% endif %}
+                <p >{{ post.subImage|raw }}</p>
+                <p>{{ str_limit(post.content_html|raw, 200) }}</p>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+</div>

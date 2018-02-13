@@ -1,0 +1,14 @@
+fields:
+    activate_stores:
+        span: left
+        type: switch
+        label: tiipiik.catalog::lang.settings.activate_stores
+        comment: tiipiik.catalog::lang.settings.activate_stores_desc
+        default: false
+
+    secure_urls:
+        span: left
+        type: switch
+        label: tiipiik.catalog::lang.settings.use_secure_urls
+        comment: tiipiik.catalog::lang.settings.use_secure_urls_desc
+        default: false

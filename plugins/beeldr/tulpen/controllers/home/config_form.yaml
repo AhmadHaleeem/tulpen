@@ -1,0 +1,10 @@
+name: Home
+form: $/beeldr/tulpen/models/home/fields.yaml
+modelClass: Beeldr\Tulpen\Models\Home
+defaultRedirect: beeldr/tulpen/home
+create:
+    redirect: 'beeldr/tulpen/home/update/:id'
+    redirectClose: beeldr/tulpen/home
+update:
+    redirect: beeldr/tulpen/home
+    redirectClose: beeldr/tulpen/home

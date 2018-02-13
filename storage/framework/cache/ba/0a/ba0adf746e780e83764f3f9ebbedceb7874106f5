@@ -1,0 +1,181 @@
+1518533753a:1:{s:21:"tulpennl-zakelijk.htm";a:16:{s:8:"fileName";s:21:"tulpennl-zakelijk.htm";s:7:"content";s:3996:"title = "Tulpen.nl zakelijk"
+url = "/tulpennl-zakelijk"
+layout = "tulpen-zakelijk"
+is_hidden = 0
+child_of = "home-page"
+hide_crumb = 0
+remove_crumb_trail = 0
+crumb_disabled = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 300
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog/category"
+postPage = "singlepostpage"
+
+[yandexShare]
+bare = 0
+counter = 0
+copy = "last"
+direction = "horizontal"
+popup_direction = "bottom"
+popup_position = "inner"
+lang = "en"
+size = "m"
+collections = 0
+vkontakte = 0
+facebook = 1
+odnoklassniki = 0
+moimir = 0
+gplus = 0
+pinterest = 0
+twitter = 1
+blogger = 0
+delicious = 0
+digg = 0
+reddit = 0
+evernote = 0
+linkedin = 0
+lj = 0
+pocket = 0
+qzone = 0
+renren = 0
+sinaWeibo = 0
+surfingbird = 0
+tencentWeibo = 0
+tumblr = 0
+viber = 0
+whatsapp = 0
+skype = 0
+telegram = 0
+
+[breadcrumbs]
+main-ol-class = "breadcrumb"
+active-class = "active"
+disabled-class = "disabled"
+==
+{% set posts = blogPosts.posts %}
+
+
+
+
+<div class="container zakelijk_container" style="margin-top: -300px">
+    {% component 'breadcrumbs' %}
+    <section id="section" class="zakelijk">
+        <div class="masonry">
+            {% for post in posts %}
+            {% if post.published_in_tulpenZakelijk == 1 %}
+            {% if post.featured_images == false %}
+            <div class="block without_title">
+                {% if post.title %}
+                <h3 ><a href="{{ post.url }}">{{ post.title }}</a></h3>
+                {% endif %}
+                {% if post.content_html %}
+                <p>{{post.content_html|raw }}</p>
+                {% endif %}
+                {% if post.excerpt %}
+                <p>{{post.excerpt|raw }}</p>
+                {% endif %}
+            </div>
+            {% else %}
+            <div class='block'>
+                {% if post.title %}
+                <h3 ><a style="text-decoration: none" href="{{ post.url }}">{{ post.title }}</a></h3>
+                {% endif %}
+                {% if post.featured_images %}
+                <a href="{{post.url}}"><img  src="{{post.featured_images.thumb(1700,1700)}}"></a>
+                {% else %}
+                {% for image in post.poster_images %}
+                <img  src="{{image.thumb(300,400)}}">
+                {% endfor %}
+                {% endif %}
+                <p >{{ post.subImage|raw }}</p>
+                {% if post.content_html %}
+                <p>{{str_limit(post.content_html|raw, 300) }}</p>
+                <div class="social" >
+                    {% component 'yandexShare' %}
+
+                </div>
+                <a class="pinter_icon" style="float: right;margin-right: 0;" data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url={{post.featured_images.path}}&media={{post.featured_images.path}}&description={{post.title}}" data-pin-custom="true"><img style="float: right;margin-right: 4px;width:46px;height: 46px;margin-left: 0" src="{{'../../themes/tulpen/assets/img/pin.jpg'}}" width="25" height="25"></a>
+                {% endif %}
+                {% if post.excerpt %}
+                <p>{{str_limit(post.excerpt, 300) }}</p>
+                <div class="social" >
+                    {% component 'yandexShare' %}
+
+                </div>
+                <a class="pinter_icon" style="position: absolute;right: 110px;" data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url={{post.featured_images.path}}&media={{post.featured_images.path}}&description={{post.title}}" data-pin-custom="true"><img style="float: right;margin-right: 4px;width:46px;height: 46px;margin-left: 0" src="{{'../../themes/tulpen/assets/img/pin.jpg'}}" width="25" height="25"></a>
+                {% endif %}
+            </div>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+    <div class="contact_page text-center col-sm-6 col-sm-offset-5">
+        <p><a href="{{ contact|page }}" style="text-decoration: none;color: #FFF" >Contact</a></p>
+    </div>
+</div>";s:5:"mtime";i:1517313323;s:6:"markup";s:3063:"{% set posts = blogPosts.posts %}
+
+
+
+
+<div class="container zakelijk_container" style="margin-top: -300px">
+    {% component 'breadcrumbs' %}
+    <section id="section" class="zakelijk">
+        <div class="masonry">
+            {% for post in posts %}
+            {% if post.published_in_tulpenZakelijk == 1 %}
+            {% if post.featured_images == false %}
+            <div class="block without_title">
+                {% if post.title %}
+                <h3 ><a href="{{ post.url }}">{{ post.title }}</a></h3>
+                {% endif %}
+                {% if post.content_html %}
+                <p>{{post.content_html|raw }}</p>
+                {% endif %}
+                {% if post.excerpt %}
+                <p>{{post.excerpt|raw }}</p>
+                {% endif %}
+            </div>
+            {% else %}
+            <div class='block'>
+                {% if post.title %}
+                <h3 ><a style="text-decoration: none" href="{{ post.url }}">{{ post.title }}</a></h3>
+                {% endif %}
+                {% if post.featured_images %}
+                <a href="{{post.url}}"><img  src="{{post.featured_images.thumb(1700,1700)}}"></a>
+                {% else %}
+                {% for image in post.poster_images %}
+                <img  src="{{image.thumb(300,400)}}">
+                {% endfor %}
+                {% endif %}
+                <p >{{ post.subImage|raw }}</p>
+                {% if post.content_html %}
+                <p>{{str_limit(post.content_html|raw, 300) }}</p>
+                <div class="social" >
+                    {% component 'yandexShare' %}
+
+                </div>
+                <a class="pinter_icon" style="float: right;margin-right: 0;" data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url={{post.featured_images.path}}&media={{post.featured_images.path}}&description={{post.title}}" data-pin-custom="true"><img style="float: right;margin-right: 4px;width:46px;height: 46px;margin-left: 0" src="{{'../../themes/tulpen/assets/img/pin.jpg'}}" width="25" height="25"></a>
+                {% endif %}
+                {% if post.excerpt %}
+                <p>{{str_limit(post.excerpt, 300) }}</p>
+                <div class="social" >
+                    {% component 'yandexShare' %}
+
+                </div>
+                <a class="pinter_icon" style="position: absolute;right: 110px;" data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url={{post.featured_images.path}}&media={{post.featured_images.path}}&description={{post.title}}" data-pin-custom="true"><img style="float: right;margin-right: 4px;width:46px;height: 46px;margin-left: 0" src="{{'../../themes/tulpen/assets/img/pin.jpg'}}" width="25" height="25"></a>
+                {% endif %}
+            </div>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+    <div class="contact_page text-center col-sm-6 col-sm-offset-5">
+        <p><a href="{{ contact|page }}" style="text-decoration: none;color: #FFF" >Contact</a></p>
+    </div>
+</div>";s:4:"code";N;s:5:"title";s:18:"Tulpen.nl zakelijk";s:3:"url";s:18:"/tulpennl-zakelijk";s:6:"layout";s:15:"tulpen-zakelijk";s:9:"is_hidden";s:1:"0";s:8:"child_of";s:9:"home-page";s:10:"hide_crumb";s:1:"0";s:18:"remove_crumb_trail";s:1:"0";s:14:"crumb_disabled";s:1:"0";s:9:"blogPosts";a:6:{s:10:"pageNumber";s:11:"{{ :page }}";s:12:"postsPerPage";s:3:"300";s:14:"noPostsMessage";s:14:"No posts found";s:9:"sortOrder";s:17:"published_at desc";s:12:"categoryPage";s:13:"blog/category";s:8:"postPage";s:14:"singlepostpage";}s:11:"yandexShare";a:34:{s:4:"bare";s:1:"0";s:7:"counter";s:1:"0";s:4:"copy";s:4:"last";s:9:"direction";s:10:"horizontal";s:15:"popup_direction";s:6:"bottom";s:14:"popup_position";s:5:"inner";s:4:"lang";s:2:"en";s:4:"size";s:1:"m";s:11:"collections";s:1:"0";s:9:"vkontakte";s:1:"0";s:8:"facebook";s:1:"1";s:13:"odnoklassniki";s:1:"0";s:6:"moimir";s:1:"0";s:5:"gplus";s:1:"0";s:9:"pinterest";s:1:"0";s:7:"twitter";s:1:"1";s:7:"blogger";s:1:"0";s:9:"delicious";s:1:"0";s:4:"digg";s:1:"0";s:6:"reddit";s:1:"0";s:8:"evernote";s:1:"0";s:8:"linkedin";s:1:"0";s:2:"lj";s:1:"0";s:6:"pocket";s:1:"0";s:5:"qzone";s:1:"0";s:6:"renren";s:1:"0";s:9:"sinaWeibo";s:1:"0";s:11:"surfingbird";s:1:"0";s:12:"tencentWeibo";s:1:"0";s:6:"tumblr";s:1:"0";s:5:"viber";s:1:"0";s:8:"whatsapp";s:1:"0";s:5:"skype";s:1:"0";s:8:"telegram";s:1:"0";}s:11:"breadcrumbs";a:3:{s:13:"main-ol-class";s:10:"breadcrumb";s:12:"active-class";s:6:"active";s:14:"disabled-class";s:8:"disabled";}}}

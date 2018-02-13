@@ -1,0 +1,40 @@
+title = "single page"
+url = "/homepage/single/:slug"
+layout = "default"
+is_hidden = 0
+
+[builderDetails]
+modelClass = "Beeldr\Tulpen\Models\Home"
+identifierValue = "{{ :slug }}"
+modelKeyColumn = "slug"
+displayColumn = "body"
+notFoundMessage = "Record not found"
+==
+{% set record = builderDetails.record %}
+{% set displayColumn = builderDetails.displayColumn %}
+{% set notFoundMessage = builderDetails.notFoundMessage %}
+<div class="row">
+    {% if record %}
+    <div style="margin-left: 10px;padding: 25px;border: 4px solid #D3D3D3;border-radius: 40px;margin-right: 20px;margin-bottom: 30px" class="col-lg-8">
+        <img style="display: inline-block;margin-top: -5px" src="../../themes/tulpen/assets/img/icon_tulip.gif">
+        <h2 style="color: #DA1B1B;display: inline-block;margin-top: 4px;margin-bottom: 8px; font-family: bold">{{ record.title }}</h2>
+        {{ record.body|raw }}
+    </div>
+    <div class="col-lg-3" >
+        {% if record.posterGroup %}
+           {% for image in record.posterGroup %}
+                 <img style="border-radius: 20px; border: 4px solid #D3D3D3; max-width: 450px" src="{{ image.thumb(300, 300) }}"><br>
+            {% endfor %}
+        {%endif%}
+    </div>
+    {% endif %}
+</div>
+<ul>
+    {% for Post in blogRelated.posts %}
+        <a href="{{Post.url}}"><li>{{ Post.title }}</li></a>
+    {% endfor %}
+</ul>
+
+
+
+

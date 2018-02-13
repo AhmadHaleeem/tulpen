@@ -1,0 +1,81 @@
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "blog/category"
+
+[newsPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 100
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+postPage = "news"
+postFeatured = 0
+==
+<header class="page">
+        <div class="header-container">
+            <img class="header-image" src="{{'../../themes/tulpen/assets/img/header.png'}}">
+            <span class="header-text">Alles over Tulpen</span>
+            <img  class="header__tulip-lady" src="{{'../../themes/tulpen/assets/img/tulip-lady.png'}}">
+        </div>
+
+        <!--<div class="colored-bar">-->
+            <!--<div class="colored-bar__block colored-bar__block&#45;&#45;red"></div>-->
+            <!--<div class="colored-bar__block colored-bar__block&#45;&#45;yellow"></div>-->
+            <!--<div class="colored-bar__block colored-bar__block&#45;&#45;orange"></div>-->
+            <!--<div class="colored-bar__block colored-bar__block&#45;&#45;green"></div>-->
+            <!--<div class="colored-bar__block colored-bar__block&#45;&#45;orange"></div>-->
+            <!--<div class="colored-bar__block colored-bar__block&#45;&#45;deep-orange"></div>-->
+        <!--</div>-->
+        <!--<div class="nav-bar">-->
+            <!--<img class="nav-bar__logo" src="{{'../../themes/tulpen/assets/img/logo.png'}}">-->
+            <!--<div class="nav-bar__hamburger">-->
+                <!--<span></span>-->
+                <!--<span></span>-->
+                <!--<span></span>-->
+            <!--</div>-->
+        <!--</div>-->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"> <img class="nav-bar__logo" src="{{'../../themes/tulpen/assets/img/logo.png'}}"></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                    {% if blogCategories.categories %}
+                    <ul class="nav navbar-nav">
+                        <li><a href="{{ 'home-page'|page}}">Home</a></li>
+                        <li class="news_margin"><a href="{{ 'news'|page}}">News</a></li>
+                        <li>{% partial blogCategories ~ "::items"
+                            categories = blogCategories.categories
+                            currentCategorySlug = blogCategories.currentCategorySlug
+                            %}
+                        </li>
+                        <li><a href="{{ 'tulpennl-zakelijk'|page}}">Tulpen.nl_zakelijk</a></li>
+                        <li><a href="{{ 'contact'|page}}">Contact</a></li>
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+    </header>
+</div>
+{% set posts = newsPosts.posts %}
+
+<div class=" demo-1" style="margin-left: -10px;;width: 101.5%;margin-top: -20px;">
+    <div class="main">
+        <ul id="carousel" class="elastislide-list">
+            {% for post in posts %}
+            <li><a href="/{{ postPage }}/{{ post.slug }}"><img src="{{ post.image|media }}" alt="{{ post.title}}"><span class="nav_title_span">{{ str_limit(post.title, 20)}}</span></a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

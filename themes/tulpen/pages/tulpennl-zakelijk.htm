@@ -1,0 +1,120 @@
+title = "Tulpen.nl zakelijk"
+url = "/tulpennl-zakelijk"
+layout = "tulpen-zakelijk"
+is_hidden = 0
+child_of = "home-page"
+hide_crumb = 0
+remove_crumb_trail = 0
+crumb_disabled = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 300
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog/category"
+postPage = "singlepostpage"
+
+[yandexShare]
+bare = 0
+counter = 0
+copy = "last"
+direction = "horizontal"
+popup_direction = "bottom"
+popup_position = "inner"
+lang = "en"
+size = "m"
+collections = 0
+vkontakte = 0
+facebook = 1
+odnoklassniki = 0
+moimir = 0
+gplus = 0
+pinterest = 0
+twitter = 1
+blogger = 0
+delicious = 0
+digg = 0
+reddit = 0
+evernote = 0
+linkedin = 0
+lj = 0
+pocket = 0
+qzone = 0
+renren = 0
+sinaWeibo = 0
+surfingbird = 0
+tencentWeibo = 0
+tumblr = 0
+viber = 0
+whatsapp = 0
+skype = 0
+telegram = 0
+
+[breadcrumbs]
+main-ol-class = "breadcrumb"
+active-class = "active"
+disabled-class = "disabled"
+==
+{% set posts = blogPosts.posts %}
+
+
+
+
+<div class="container zakelijk_container" style="margin-top: -300px">
+    {% component 'breadcrumbs' %}
+    <section id="section" class="zakelijk">
+        <div class="masonry">
+            {% for post in posts %}
+            {% if post.published_in_tulpenZakelijk == 1 %}
+            {% if post.featured_images == false %}
+            <div class="block without_title">
+                {% if post.title %}
+                <h3 ><a href="{{ post.url }}">{{ post.title }}</a></h3>
+                {% endif %}
+                {% if post.content_html %}
+                <p>{{post.content_html|raw }}</p>
+                {% endif %}
+                {% if post.excerpt %}
+                <p>{{post.excerpt|raw }}</p>
+                {% endif %}
+            </div>
+            {% else %}
+            <div class='block'>
+                {% if post.title %}
+                <h3 ><a style="text-decoration: none" href="{{ post.url }}">{{ post.title }}</a></h3>
+                {% endif %}
+                {% if post.featured_images %}
+                <a href="{{post.url}}"><img  src="{{post.featured_images.thumb(1700,1700)}}"></a>
+                {% else %}
+                {% for image in post.poster_images %}
+                <img  src="{{image.thumb(300,400)}}">
+                {% endfor %}
+                {% endif %}
+                <p >{{ post.subImage|raw }}</p>
+                {% if post.content_html %}
+                <p>{{str_limit(post.content_html|raw, 300) }}</p>
+                <div class="social" >
+                    {% component 'yandexShare' %}
+
+                </div>
+                <a class="pinter_icon" style="float: right;margin-right: 0;" data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url={{post.featured_images.path}}&media={{post.featured_images.path}}&description={{post.title}}" data-pin-custom="true"><img style="float: right;margin-right: 4px;width:46px;height: 46px;margin-left: 0" src="{{'../../themes/tulpen/assets/img/pin.jpg'}}" width="25" height="25"></a>
+                {% endif %}
+                {% if post.excerpt %}
+                <p>{{str_limit(post.excerpt, 300) }}</p>
+                <div class="social" >
+                    {% component 'yandexShare' %}
+
+                </div>
+                <a class="pinter_icon" style="position: absolute;right: 110px;" data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url={{post.featured_images.path}}&media={{post.featured_images.path}}&description={{post.title}}" data-pin-custom="true"><img style="float: right;margin-right: 4px;width:46px;height: 46px;margin-left: 0" src="{{'../../themes/tulpen/assets/img/pin.jpg'}}" width="25" height="25"></a>
+                {% endif %}
+            </div>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+    <div class="contact_page text-center col-sm-6 col-sm-offset-5">
+        <p><a href="{{ contact|page }}" style="text-decoration: none;color: #FFF" >Contact</a></p>
+    </div>
+</div>

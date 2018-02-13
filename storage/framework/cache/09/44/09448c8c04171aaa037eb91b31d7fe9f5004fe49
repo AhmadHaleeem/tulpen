@@ -1,0 +1,64 @@
+1518533753a:1:{s:15:"single-page.htm";a:10:{s:8:"fileName";s:15:"single-page.htm";s:7:"content";s:1395:"title = "single page"
+url = "/homepage/single/:slug"
+layout = "default"
+is_hidden = 0
+
+[builderDetails]
+modelClass = "Beeldr\Tulpen\Models\Home"
+identifierValue = "{{ :slug }}"
+modelKeyColumn = "slug"
+displayColumn = "body"
+notFoundMessage = "Record not found"
+==
+{% set record = builderDetails.record %}
+{% set displayColumn = builderDetails.displayColumn %}
+{% set notFoundMessage = builderDetails.notFoundMessage %}
+<div class="row">
+    {% if record %}
+    <div style="margin-left: 10px;padding: 25px;border: 4px solid #D3D3D3;border-radius: 40px;margin-right: 20px;margin-bottom: 30px" class="col-lg-8">
+        <img style="display: inline-block;margin-top: -5px" src="../../themes/tulpen/assets/img/icon_tulip.gif">
+        <h2 style="color: #DA1B1B;display: inline-block;margin-top: 4px;margin-bottom: 8px; font-family: bold">{{ record.title }}</h2>
+        {{ record.body|raw }}
+    </div>
+    <div class="col-lg-3" >
+        {% if record.posterGroup %}
+           {% for image in record.posterGroup %}
+                 <img style="border-radius: 20px; border: 4px solid #D3D3D3; max-width: 450px" src="{{ image.thumb(300, 300) }}"><br>
+            {% endfor %}
+        {%endif%}
+    </div>
+    {% endif %}
+</div>
+<ul>
+    {% for Post in blogRelated.posts %}
+        <a href="{{Post.url}}"><li>{{ Post.title }}</li></a>
+    {% endfor %}
+</ul>
+
+
+
+
+";s:5:"mtime";i:1515498977;s:6:"markup";s:1109:"{% set record = builderDetails.record %}
+{% set displayColumn = builderDetails.displayColumn %}
+{% set notFoundMessage = builderDetails.notFoundMessage %}
+<div class="row">
+    {% if record %}
+    <div style="margin-left: 10px;padding: 25px;border: 4px solid #D3D3D3;border-radius: 40px;margin-right: 20px;margin-bottom: 30px" class="col-lg-8">
+        <img style="display: inline-block;margin-top: -5px" src="../../themes/tulpen/assets/img/icon_tulip.gif">
+        <h2 style="color: #DA1B1B;display: inline-block;margin-top: 4px;margin-bottom: 8px; font-family: bold">{{ record.title }}</h2>
+        {{ record.body|raw }}
+    </div>
+    <div class="col-lg-3" >
+        {% if record.posterGroup %}
+           {% for image in record.posterGroup %}
+                 <img style="border-radius: 20px; border: 4px solid #D3D3D3; max-width: 450px" src="{{ image.thumb(300, 300) }}"><br>
+            {% endfor %}
+        {%endif%}
+    </div>
+    {% endif %}
+</div>
+<ul>
+    {% for Post in blogRelated.posts %}
+        <a href="{{Post.url}}"><li>{{ Post.title }}</li></a>
+    {% endfor %}
+</ul>";s:4:"code";N;s:5:"title";s:11:"single page";s:3:"url";s:22:"/homepage/single/:slug";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";s:14:"builderDetails";a:5:{s:10:"modelClass";s:25:"Beeldr\Tulpen\Models\Home";s:15:"identifierValue";s:11:"{{ :slug }}";s:14:"modelKeyColumn";s:4:"slug";s:13:"displayColumn";s:4:"body";s:15:"notFoundMessage";s:16:"Record not found";}}}

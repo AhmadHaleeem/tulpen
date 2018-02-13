@@ -1,0 +1,29 @@
+title = "Blog Post"
+url = "/blog/post/:slug?"
+layout = "default"
+is_hidden = 0
+
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "blog/category"
+==
+{% set post = blogPost.post %}
+
+
+<a ><h2 style="color: #DA1B1B;display: inline-block;margin-top: 4px;margin-bottom: 0; font-family: bold;margin-left: 10px;font-size: 25px;">{{ post.title }}</h2></a>
+<p>{{ post.content_html|raw }}</p>
+
+
+
+
+
+<p class="info">
+    Posted
+    {% if post.categories.count %} in
+        {% for category in post.categories %}
+            <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+        {% endfor %}
+    {% endif %}
+    on Morning {{ post.published_at|date('M d, Y') }}
+    
+</p>

@@ -1,0 +1,11 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table beeldr_tulpen_home'
+    - builder_table_create_beeldr_tulpen_home.php
+1.0.3:
+    - 'Updated table beeldr_tulpen_home'
+    - builder_table_update_beeldr_tulpen_home.php
+1.0.4:
+    - 'Updated table beeldr_tulpen_home'
+    - builder_table_update_beeldr_tulpen_home_2.php

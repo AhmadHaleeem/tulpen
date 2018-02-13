@@ -1,0 +1,93 @@
+title = "Home page"
+url = "/"
+layout = "default"
+is_hidden = 0
+child_of = "mey_no_parent"
+hide_crumb = 0
+remove_crumb_trail = 0
+crumb_disabled = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 300
+noPostsMessage = "No posts found"
+sortOrder = "published_at asc"
+categoryPage = "blog/category"
+postPage = "singlepostpage"
+
+[yandexShare]
+bare = 0
+counter = 0
+copy = "last"
+direction = "horizontal"
+popup_direction = "bottom"
+popup_position = "inner"
+lang = "en"
+size = "m"
+collections = 0
+vkontakte = 0
+facebook = 1
+odnoklassniki = 0
+moimir = 0
+gplus = 0
+pinterest = 0
+twitter = 1
+blogger = 0
+delicious = 0
+digg = 0
+reddit = 0
+evernote = 0
+linkedin = 0
+lj = 0
+pocket = 0
+qzone = 0
+renren = 0
+sinaWeibo = 0
+surfingbird = 0
+tencentWeibo = 0
+tumblr = 0
+viber = 0
+whatsapp = 0
+skype = 0
+telegram = 0
+==
+{% set posts = blogPosts.posts %}
+
+<div class="container home_container">
+    
+    <section id="section" style="margin-top: -300px">
+        <div id="listBlock" class="masonry">
+            {% for post in posts %}
+
+                {% if post.published_in_homePage == 1 %}
+                    <div  class="block {% for category in post.categories %} {{ category.name }} {% endfor %}">
+                        {% if post.title %}
+                        <!--<div class="fb-share-button"  data-href="{{post.url}}" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a></div>-->
+
+                        <h3 ><a style="text-decoration: none" href="{% if post.content_html %} {{ post.url }} {% endif %}">{{ post.title }}</a></h3>
+                        {% endif %}
+                        {% if post.featured_images %}
+                            <a href=" {{ post.url }} "><img src="{{post.featured_images.thumb(1700,1700)}}"></a>
+
+                        {% else %}
+                        {% for image in post.poster_images %}
+                            <img  src="{{image.thumb(300,400)}}">
+                        {% endfor %}
+                        {% endif %}
+                        {% if post.content_html %}
+                            <p >{{ post.subImage|raw }}</p>
+                            <p>{{ str_limit(post.content_html|raw, 200) }}</p>
+
+                        {% endif %}
+                        <div class="social" >
+                            {% component 'yandexShare' %}
+                            <a class="pinter_icon" data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url={{post.featured_images.path}}&media={{post.featured_images.path}}&description={{post.title}}" data-pin-custom="true"><img style="width:46px;height: 46px; margin-left: -50px;
+    margin-top: -46px;" src="{{'../../themes/tulpen/assets/img/pin.jpg'}}" width="25" height="25"></a>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div id="loadMore">Toon meer tulpeninfo artikelen</div>
+    </section>
+</div>

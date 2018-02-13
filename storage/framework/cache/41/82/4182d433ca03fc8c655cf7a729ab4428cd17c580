@@ -1,0 +1,62 @@
+1518533753a:1:{s:13:"post-page.htm";a:10:{s:8:"fileName";s:13:"post-page.htm";s:7:"content";s:1280:"title = "Post Page"
+url = "/post-page"
+layout = "default"
+is_hidden = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 200
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "singlepostpage"
+postPage = "singlepostpage"
+==
+{% set posts = blogPosts.posts %}
+<div class="container">
+    <section id="section" style="margin-top: -300px">
+        <div class="masonry">
+            {% for post in posts %}
+            {% if post.display_in_homepage == 1 %}
+            <div class="block">
+                {% if post.title %}
+                <h3 ><a style="text-decoration: none" href="{{ post.url }}">{{ post.title }}</a></h3>
+                {% endif %}
+                {% if post.featured_images %}
+                <a href="{{post.url}}"><img   src="{{post.featured_images.thumb(1700,1700)}}"></a>
+                {% else %}
+                {% for image in post.poster_images %}
+                <img  src="{{image.thumb(300,400)}}">
+                {% endfor %}
+                {% endif %}
+                <p >{{ post.subImage|raw }}</p>
+                <p>{{ str_limit(post.content_html|raw, 200) }}</p>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+</div>";s:5:"mtime";i:1516271523;s:6:"markup";s:1007:"{% set posts = blogPosts.posts %}
+<div class="container">
+    <section id="section" style="margin-top: -300px">
+        <div class="masonry">
+            {% for post in posts %}
+            {% if post.display_in_homepage == 1 %}
+            <div class="block">
+                {% if post.title %}
+                <h3 ><a style="text-decoration: none" href="{{ post.url }}">{{ post.title }}</a></h3>
+                {% endif %}
+                {% if post.featured_images %}
+                <a href="{{post.url}}"><img   src="{{post.featured_images.thumb(1700,1700)}}"></a>
+                {% else %}
+                {% for image in post.poster_images %}
+                <img  src="{{image.thumb(300,400)}}">
+                {% endfor %}
+                {% endif %}
+                <p >{{ post.subImage|raw }}</p>
+                <p>{{ str_limit(post.content_html|raw, 200) }}</p>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+</div>";s:4:"code";N;s:5:"title";s:9:"Post Page";s:3:"url";s:10:"/post-page";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";s:9:"blogPosts";a:6:{s:10:"pageNumber";s:11:"{{ :page }}";s:12:"postsPerPage";s:3:"200";s:14:"noPostsMessage";s:14:"No posts found";s:9:"sortOrder";s:17:"published_at desc";s:12:"categoryPage";s:14:"singlepostpage";s:8:"postPage";s:14:"singlepostpage";}}}

@@ -1,0 +1,16 @@
+/*------------------------------------*\
+    #PAGE
+\*------------------------------------*/
+
+html {
+    background: #fff;
+    color: #000;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+.div {
+    display: flex;
+    flex-flow: row wrap;
+}

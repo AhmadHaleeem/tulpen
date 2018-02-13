@@ -1,0 +1,131 @@
+title = "/news/"
+url = "/news/:slug?"
+layout = "default"
+is_hidden = 0
+child_of = "mey_no_parent"
+hide_crumb = 0
+remove_crumb_trail = 0
+crumb_disabled = 0
+
+[newsPost]
+slug = "{{ :slug }}"
+
+[yandexShare]
+bare = 0
+counter = 0
+copy = "last"
+direction = "horizontal"
+popup_direction = "bottom"
+popup_position = "inner"
+lang = "en"
+size = "m"
+collections = 0
+vkontakte = 0
+facebook = 1
+odnoklassniki = 0
+moimir = 0
+gplus = 0
+pinterest = 0
+twitter = 1
+blogger = 0
+delicious = 0
+digg = 0
+reddit = 0
+evernote = 0
+linkedin = 0
+lj = 0
+pocket = 0
+qzone = 0
+renren = 0
+sinaWeibo = 0
+surfingbird = 0
+tencentWeibo = 0
+tumblr = 0
+viber = 0
+whatsapp = 0
+skype = 0
+telegram = 0
+==
+{% set post = newsPost.post %}
+<div class="container " style="margin-top: -300px">
+    <div class="single-news col-md-8 col-xs-12" >
+        <div class="post-content " style="margin-bottom: 50px">
+            <h2 class="post-title">{{ post.title }}</h2>
+            {% if post.introductory %}<div class="post-introductory">{{ post.introductory|raw }}</div>{% endif %}
+            {% if post.content %}<div class="post-content">{{ post.content|raw }}</div>{% endif %}
+            <p class="post-date" style="">Geplaatst op {{ post.published_at|date('Y-m-d') }}</p>
+            <!-- Your share button code -->
+
+        </div>
+        <div class="social_m">
+            <div
+
+    class="ya-share2"
+
+    {% if yandexShare.property('access_token') %}
+        data-access-token="{{ yandexShare.property('access_token') }}"
+    {% endif %}
+
+    {% if yandexShare.property('bare') %}
+        data-bare
+    {% endif %}
+
+    {% if yandexShare.property('counter') %}
+        data-counter
+    {% endif %}
+
+    data-copy="{{ yandexShare.property('copy') }}"
+
+    {% if yandexShare.property('description') %}
+        data-description="{{ yandexShare.property('description') }}"
+    {% endif %}
+
+    data-direction="{{ yandexShare.property('direction') }}"
+
+    {% if yandexShare.property('hashtags') %}
+        data-hashtags="{{ yandexShare.property('hashtags') }}"
+    {% endif %}
+
+    {% if yandexShare.property('image') %}
+        data-image="{{ yandexShare.property('image') }}"
+    {% endif %}
+
+    data-lang="{{ yandexShare.property('lang') }}"
+
+    {% if yandexShare.property('limit') %}
+        data-limit="{{ yandexShare.property('limit') }}"
+    {% endif %}
+
+    data-popup-direction="{{ yandexShare.property('popup_direction') }}"
+
+    data-popup-position="{{ yandexShare.property('popup_position') }}"
+
+    data-size="{{ yandexShare.property('size') }}"
+
+    {% if yandexShare.property('title') %}
+        data-title="{{ yandexShare.property('title') }}"
+    {% endif %}
+
+    {% if yandexShare.property('url') %}
+        data-url="{{ yandexShare.property('url') }}"
+    {% endif %}
+
+    data-services="{% if yandexShare.property('collections') %}collections,{% endif %}{% if yandexShare.property('vkontakte') %}vkontakte,{% endif %}{% if yandexShare.property('facebook') %}facebook,{% endif %}{% if yandexShare.property('odnoklassniki') %}odnoklassniki,{% endif %}{% if yandexShare.property('moimir') %}moimir,{% endif %}{% if yandexShare.property('gplus') %}gplus,{% endif %}{% if yandexShare.property('pinterest') %}pinterest,{% endif %}{% if yandexShare.property('twitter') %}twitter,{% endif %}{% if yandexShare.property('blogger') %}blogger,{% endif %}{% if yandexShare.property('delicious') %}delicious,{% endif %}{% if yandexShare.property('digg') %}digg,{% endif %}{% if yandexShare.property('reddit') %}reddit,{% endif %}{% if yandexShare.property('evernote') %}evernote,{% endif %}{% if yandexShare.property('linkedin') %}linkedin,{% endif %}{% if yandexShare.property('lj') %}lj,{% endif %}{% if yandexShare.property('pocket') %}pocket,{% endif %}{% if yandexShare.property('qzone') %}qzone,{% endif %}{% if yandexShare.property('renren') %}renren,{% endif %}{% if yandexShare.property('sinaWeibo') %}sinaWeibo,{% endif %}{% if yandexShare.property('surfingbird') %}surfingbird,{% endif %}{% if yandexShare.property('tencentWeibo') %}tencentWeibo,{% endif %}{% if yandexShare.property('tumblr') %}tumblr,{% endif %}{% if yandexShare.property('viber') %}viber,{% endif %}{% if yandexShare.property('whatsapp') %}whatsapp,{% endif %}{% if yandexShare.property('skype') %}skype,{% endif %}{% if yandexShare.property('telegram') %}telegram{% endif %}">
+
+        </div>
+        <a class="pinter_icon" data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url={{ image.path|app }}{{ post.image|media  }}&media={{ image.path|app }}{{ post.image|media  }}&description={{post.title}}" data-pin-custom="true"><img style="width:46px;height: 46px; margin-left: -50px;
+    margin-top: -46px;" src="{{'../../themes/tulpen/assets/img/pin.jpg'}}" width="25" height="25"></a>
+        </div>
+        
+    </div>
+
+    <div  class="single-img col-md-4 col-sm-12" >
+        {% if post.image %}
+        <div class="post-image">
+            <img  src="{{ post.image|media }}" alt="{{ post.title }}">
+            <!--<p style="color: red">{{ image.path|app }}{{ post.image|media  }}</p>-->
+        </div>
+        {% endif %}
+    </div>
+</div>
+

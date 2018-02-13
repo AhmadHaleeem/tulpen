@@ -1,0 +1,43 @@
+/*------------------------------------*\
+    #PAGE-FOOT
+\*------------------------------------*/
+
+.page-foot {
+
+
+}
+
+.colored-bar {
+  width:100%;
+  height: 11px;
+  @include mappy-bp($tablet){
+    height:20px;
+  }
+}
+.colored-bar__block {
+  height:100%;
+  display: block;
+  float: left;
+
+}
+.colored-bar__block--red {
+  background-color: $color-brand-red;
+  width:60%;
+}
+.colored-bar__block--yellow {
+  background-color: $color-brand-yellow;
+  width: 4%;
+}
+
+.colored-bar__block--green {
+  background-color: $color-brand-light-green;
+  width: 4%;
+}
+.colored-bar__block--orange {
+  background-color: $color-brand-orange;
+  width: 8%;
+}
+.colored-bar__block--deep-orange{
+  background-color: $color-brand-deep-orange;
+  width: 16%;
+}

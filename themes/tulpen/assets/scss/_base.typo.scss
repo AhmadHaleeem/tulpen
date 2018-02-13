@@ -1,0 +1,28 @@
+/*------------------------------------*\
+    #TYPO
+\*------------------------------------*/
+
+
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #4A4A4A;
+}
+
+
+h1, h2, h3, h4 {
+  font-family: 'Oswald', sans-serif;
+}
+h1 {
+  @include font-size(30px);
+}
+
+h2 {
+  @include font-size(20px);
+}
+.header__text{
+  font-family: 'Cookie', cursive;
+
+}

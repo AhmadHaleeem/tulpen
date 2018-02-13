@@ -1,0 +1,6 @@
+plugin:
+    name: 'beeldr.tulpen::lang.plugin.name'
+    description: 'beeldr.tulpen::lang.plugin.description'
+    author: Beeldr
+    icon: oc-icon-adjust
+    homepage: ''

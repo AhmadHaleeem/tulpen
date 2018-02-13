@@ -1,0 +1,134 @@
+title = "Blog Category"
+url = "/blog/category/:slug"
+layout = "default"
+is_hidden = 0
+child_of = "post-page"
+hide_crumb = 0
+remove_crumb_trail = 0
+crumb_disabled = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "{{ :slug }}"
+postsPerPage = 200
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog/post"
+postPage = "singlepostpage"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "blog/category"
+
+[yandexShare]
+bare = 0
+counter = 0
+copy = "last"
+direction = "horizontal"
+popup_direction = "bottom"
+popup_position = "inner"
+lang = "en"
+size = "m"
+collections = 0
+vkontakte = 0
+facebook = 1
+odnoklassniki = 0
+moimir = 0
+gplus = 0
+pinterest = 0
+twitter = 1
+blogger = 0
+delicious = 0
+digg = 0
+reddit = 0
+evernote = 0
+linkedin = 0
+lj = 0
+pocket = 0
+qzone = 0
+renren = 0
+sinaWeibo = 0
+surfingbird = 0
+tencentWeibo = 0
+tumblr = 0
+viber = 0
+whatsapp = 0
+skype = 0
+telegram = 0
+==
+{% set posts = blogPosts.posts %}
+
+{% if category.name == 'Bijzaken' %}
+<div class="container ">
+
+    <section id="section" style="margin-top: -300px" class="bijzaken">
+        <nav class="breadcrumb">
+            <a class="breadcrumb-item" href="{{ 'home-page'|page}}">Home</a>
+            <span class="breadcrumb-item active">/ {{ category.name }}</span>
+        </nav>
+        <div class="masonry">
+            {% for post in posts %}
+            <div class="block {{category.name }}">
+                {% if post.title %}
+                <h3 ><a style="text-decoration: none" href="{{ post.url }}">{{ post.title }}</a></h3>
+                {% endif %}
+                {% if post.featured_images %}
+                <a href="{{post.url}}"><img   src="{{post.featured_images.thumb(400,400)}}"></a>
+                {% else %}
+                {% for image in post.poster_images %}
+                <img  src="{{image.thumb(300,400)}}">
+                {% endfor %}
+                {% endif %}
+                <p >{{ post.subImage|raw }}</p>
+                <p>{{ str_limit(post.content_html|raw, 470) }}</p>
+                <div class="social" >
+                    {% component 'yandexShare' %}
+
+                </div>
+                <a class="pinter_icon" style="" data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url={{ post.featured_images.path }}&media={{ post.featured_images.path }}" data-pin-custom="true"><img style="width:46px;height: 46px;margin-left: 0;float: right;margin-right: 4px" src="{{'../../themes/tulpen/assets/img/pin.jpg'}}" width="25" height="25"></a>
+
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+
+
+{% else %}
+
+<div class="container " style="max-width: 1600px">
+
+    <section id="section1" style="margin-top: -300px">
+        <nav style="display: block;" class="breadcrumb">
+            <a style="color: #000" class="breadcrumb-item" href="{{ 'home-page'|page}}">Home ></a>
+            <span class="breadcrumb-item active">{{ category.name }} {{ category.path }}</span>
+        </nav>
+        <div id="listBlock" class="masonry" >
+
+            {% for post in posts %}
+            <div class="block {{category.name }}">
+                {% if post.title %}
+                    <h3 ><a style="text-decoration: none" href="{{ post.url }}">{{ post.title }}</a></h3>
+                {% endif %}
+                {% if post.featured_images %}
+                    <a href="{{post.url}}"><img   src="{{post.featured_images.thumb(1700,1700)}}"></a>
+                {% else %}
+                {% for image in post.poster_images %}
+                    <img  src="{{image.thumb(300,400)}}">
+                {% endfor %}
+                {% endif %}
+                <p >{{ post.subImage|raw }}</p>
+                <p>{{ html_limit(post.content_html|raw, 270) }}</p>
+                <div class="social" >
+                    {% component 'yandexShare' %}
+
+                </div>
+                <a class="pinter_icon" style="display: inline-block;float: right;margin-right: 4px" data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url={{ post.featured_images.path }}&media={{ post.featured_images.path }}" data-pin-custom="true"><img style="width:46px;height: 46px;margin-left: 0" src="{{'../../themes/tulpen/assets/img/pin.jpg'}}" width="25" height="25"></a>
+            </div>
+            {% endfor %}
+        </div>
+        <div id="loadMore">Toon meer tulpeninfo artikelen</div>
+    </section>
+{% endif %}
+</div>

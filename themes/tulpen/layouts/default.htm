@@ -1,0 +1,82 @@
+description = "Default layout"
+==
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>October CMS - {{ this.page.title }}</title>
+    <meta name="description" content="{{ this.page.meta_description }}">
+    <meta name="title" content="{{ this.page.meta_title }}">
+    <meta name="author" content="OctoberCMS">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="OctoberCMS">
+
+
+    <link rel="icon" type="image/png" href="{{ 'assets/images/october.png'|theme }}">
+
+    <![endif]-->
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <link href="{{ 'assets/css/bootstrap.min.css'|theme }}" rel="stylesheet">
+    <link href="{{ 'assets/css/font-awesome.min.css'|theme }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{'assets/css/demo.css' |theme}}" />
+    <link rel="stylesheet" type="text/css" href="{{'assets/css/custom.css' |theme}}" />
+
+    <link href="{{ 'assets/css/style.css'|theme }}" rel="stylesheet">
+
+    {% styles %}
+
+    <!--<script>-->
+        <!--function sentence(num){-->
+            <!--var result = "", mysentence = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. ";-->
+            <!--for(var i = 0; i < num; i++){ result += mysentence; } return result;-->
+        <!--}-->
+    <!--</script>-->
+
+
+</head>
+<body style="font-family: 'Open Sans'">
+
+{% partial 'header' %}
+<div class="space" style="margin-bottom: 350px"></div>
+<!-- Content -->
+<section id="layout-content" class="">
+    {% page %}
+</section>
+
+<!--{% partial 'footer' %}-->
+
+
+
+
+<!--<script src="{{ 'assets/js/jquery-1.12.4.min.js'|theme }}"></script>
+<script src="{{ 'assets/js/main.js'|theme }}"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>-->
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+
+<!--<script src="{{ 'assets/js/masonry.pkgd.min.js'|theme }}"></script>-->
+<!--<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>-->
+<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>-->
+<!--<script type="text/javascript" src="{{'assets/js/jquerypp.custom.js' |theme}}"></script>-->
+<!--<script type="text/javascript" src="{{'assets/js/jquery.elastislide.js' |theme}}"></script>-->
+
+
+<script
+        type="text/javascript"
+        async defer
+        src="//assets.pinterest.com/js/pinit.js"
+></script>
+
+
+
+
+
+{% scripts %}
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"
+        integrity="sha256-7LkWEzqTdpEfELxcZZlS6wAx5Ff13zZ83lYO2/ujj7g="
+        crossorigin="anonymous"></script>
+<script src="{{'assets/js/min/main.js' | theme}}"></script>
+{% framework extras %}
+
+</body>
+</html>

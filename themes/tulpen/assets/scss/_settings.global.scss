@@ -1,0 +1,23 @@
+///*------------------------------------*\
+//    #GLOBAL
+//\*------------------------------------*/
+
+$brand-color:   #0EA934;
+$brand-round:   0px;
+$base-round:    $brand-round;
+
+
+$base-font-size:    14px!default;
+$base-line-height:  19px!default;
+
+$base-spacing-unit: $base-line-height!default;
+$half-spacing-unit: $base-spacing-unit / 2!default;
+$line-height-ratio: $base-line-height / $base-font-size;
+
+
+$page-width: 1200px;
+
+
+$site-nav-generic-height:   52px;
+$site-nav-user-height:      30px;
+$site-search-height:        100px;

@@ -1,0 +1,48 @@
+/*------------------------------------*\
+    #HELPERS
+\*------------------------------------*/
+
+.hovered {
+    cursor: pointer;
+}
+
+.is-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.text--centered {
+    text-align: center;
+}
+
+.text--left {
+    text-align: left;
+}
+
+.text--right {
+    text-align: right;
+}
+
+.caps {
+    text-transform: uppercase;
+}
+
+.is-hidden {
+    display: none;
+}
+
+.float--right {
+    float: right;
+}
+
+.float--left {
+    float: left;
+}
+
+// RESPONSIVE IFRAMES
+iframe, object, embed {
+    max-width: 100%;
+}
+

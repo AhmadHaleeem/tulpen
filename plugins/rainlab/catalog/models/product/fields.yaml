@@ -1,0 +1,112 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+
+    title:
+        label:  tiipiik.catalog::lang.products.title
+        placeholder: tiipiik.catalog::lang.products.title_ph
+        span: left
+
+    slug:
+        label: tiipiik.catalog::lang.products.slug
+        span: right
+        placeholder: tiipiik.catalog::lang.products.slug_ph
+        attributes:
+            data-input-preset: 'input[name="Product[title]"]'
+            data-input-preset-type: slug
+            data-input-preset-closest-parent: form
+
+
+    is_published:
+        label: tiipiik.catalog::lang.products.published
+        type: switch
+        span: auto
+
+tabs:
+    fields:
+        sku:
+            tab: tiipiik.catalog::lang.products.details_tab_title
+            label:  tiipiik.catalog::lang.products.sku
+            placeholder: tiipiik.catalog::lang.products.sku_ph
+            span: auto
+
+        items_available:
+            tab: tiipiik.catalog::lang.products.details_tab_title
+            type: number
+            label: tiipiik.catalog::lang.products.items_available
+            placeholder: tiipiik.catalog::lang.products.items_available_ph
+            span: auto
+
+        price:
+            tab: tiipiik.catalog::lang.products.details_tab_title
+            type: number
+            label: tiipiik.catalog::lang.products.price
+            placeholder: tiipiik.catalog::lang.products.price_ph
+            span: left
+            default: "0.00"
+            required: true
+
+        discount_price:
+            tab: tiipiik.catalog::lang.products.details_tab_title
+            type: number
+            label: tiipiik.catalog::lang.products.discount_price
+            placeholder: tiipiik.catalog::lang.products.discount_price_ph
+            default: "0.00"
+            span: right
+
+        description:
+            tab: tiipiik.catalog::lang.products.details_tab_title
+            label: tiipiik.catalog::lang.products.description
+            placeholder: tiipiik.catalog::lang.products.description_ph
+            type: richeditor
+
+        customfields:
+            tab: tiipiik.catalog::lang.products.details_tab_title
+            label: tiipiik.catalog::lang.products.custom_fields
+            type: partial
+            path: customfields_partial
+            # commentAbove: 
+
+        categories:
+            tab: tiipiik.catalog::lang.products.category_tab_title
+            type: relation
+            commentAbove: tiipiik.catalog::lang.products.categories_cmt
+
+        group:
+            tab: tiipiik.catalog::lang.products.group
+            type: relation
+            required: true
+
+        meta_title:
+            tab: SEO
+            type: text
+            label: tiipiik.catalog::lang.products.meta_title
+            placeholder: tiipiik.catalog::lang.products.meta_title_ph
+
+        meta_desc:
+            tab: SEO
+            type: textarea
+            label: tiipiik.catalog::lang.products.meta_desc
+            placeholder: tiipiik.catalog::lang.products.meta_desc_ph
+
+        brand:
+            tab: tiipiik.catalog::lang.products.brand
+            type: relation
+            required: false
+            emptyOption: tiipiik.catalog::lang.products.brand_empty
+
+        stores:
+            tab: tiipiik.catalog::lang.products.stores
+            type: relation
+            commentAbove: tiipiik.catalog::lang.products.stores_cmt
+
+secondaryTabs:
+    fields:
+        featured_images:
+            label: tiipiik.catalog::lang.products.featured_images
+            type: fileupload
+            mode: image
+            imageHeight: 260
+            imageWidth: 260

@@ -1,0 +1,132 @@
+1518533753a:1:{s:13:"home-page.htm";a:15:{s:8:"fileName";s:13:"home-page.htm";s:7:"content";s:3158:"title = "Home page"
+url = "/"
+layout = "default"
+is_hidden = 0
+child_of = "mey_no_parent"
+hide_crumb = 0
+remove_crumb_trail = 0
+crumb_disabled = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 300
+noPostsMessage = "No posts found"
+sortOrder = "published_at asc"
+categoryPage = "blog/category"
+postPage = "singlepostpage"
+
+[yandexShare]
+bare = 0
+counter = 0
+copy = "last"
+direction = "horizontal"
+popup_direction = "bottom"
+popup_position = "inner"
+lang = "en"
+size = "m"
+collections = 0
+vkontakte = 0
+facebook = 1
+odnoklassniki = 0
+moimir = 0
+gplus = 0
+pinterest = 0
+twitter = 1
+blogger = 0
+delicious = 0
+digg = 0
+reddit = 0
+evernote = 0
+linkedin = 0
+lj = 0
+pocket = 0
+qzone = 0
+renren = 0
+sinaWeibo = 0
+surfingbird = 0
+tencentWeibo = 0
+tumblr = 0
+viber = 0
+whatsapp = 0
+skype = 0
+telegram = 0
+==
+{% set posts = blogPosts.posts %}
+
+<div class="container home_container">
+    
+    <section id="section" style="margin-top: -300px">
+        <div id="listBlock" class="masonry">
+            {% for post in posts %}
+
+                {% if post.published_in_homePage == 1 %}
+                    <div  class="block {% for category in post.categories %} {{ category.name }} {% endfor %}">
+                        {% if post.title %}
+                        <!--<div class="fb-share-button"  data-href="{{post.url}}" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a></div>-->
+
+                        <h3 ><a style="text-decoration: none" href="{% if post.content_html %} {{ post.url }} {% endif %}">{{ post.title }}</a></h3>
+                        {% endif %}
+                        {% if post.featured_images %}
+                            <a href=" {{ post.url }} "><img src="{{post.featured_images.thumb(1700,1700)}}"></a>
+
+                        {% else %}
+                        {% for image in post.poster_images %}
+                            <img  src="{{image.thumb(300,400)}}">
+                        {% endfor %}
+                        {% endif %}
+                        {% if post.content_html %}
+                            <p >{{ post.subImage|raw }}</p>
+                            <p>{{ str_limit(post.content_html|raw, 200) }}</p>
+
+                        {% endif %}
+                        <div class="social" >
+                            {% component 'yandexShare' %}
+                            <a class="pinter_icon" data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url={{post.featured_images.path}}&media={{post.featured_images.path}}&description={{post.title}}" data-pin-custom="true"><img style="width:46px;height: 46px; margin-left: -50px;
+    margin-top: -46px;" src="{{'../../themes/tulpen/assets/img/pin.jpg'}}" width="25" height="25"></a>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div id="loadMore">Toon meer tulpeninfo artikelen</div>
+    </section>
+</div>";s:5:"mtime";i:1517309222;s:6:"markup";s:2352:"{% set posts = blogPosts.posts %}
+
+<div class="container home_container">
+    
+    <section id="section" style="margin-top: -300px">
+        <div id="listBlock" class="masonry">
+            {% for post in posts %}
+
+                {% if post.published_in_homePage == 1 %}
+                    <div  class="block {% for category in post.categories %} {{ category.name }} {% endfor %}">
+                        {% if post.title %}
+                        <!--<div class="fb-share-button"  data-href="{{post.url}}" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a></div>-->
+
+                        <h3 ><a style="text-decoration: none" href="{% if post.content_html %} {{ post.url }} {% endif %}">{{ post.title }}</a></h3>
+                        {% endif %}
+                        {% if post.featured_images %}
+                            <a href=" {{ post.url }} "><img src="{{post.featured_images.thumb(1700,1700)}}"></a>
+
+                        {% else %}
+                        {% for image in post.poster_images %}
+                            <img  src="{{image.thumb(300,400)}}">
+                        {% endfor %}
+                        {% endif %}
+                        {% if post.content_html %}
+                            <p >{{ post.subImage|raw }}</p>
+                            <p>{{ str_limit(post.content_html|raw, 200) }}</p>
+
+                        {% endif %}
+                        <div class="social" >
+                            {% component 'yandexShare' %}
+                            <a class="pinter_icon" data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url={{post.featured_images.path}}&media={{post.featured_images.path}}&description={{post.title}}" data-pin-custom="true"><img style="width:46px;height: 46px; margin-left: -50px;
+    margin-top: -46px;" src="{{'../../themes/tulpen/assets/img/pin.jpg'}}" width="25" height="25"></a>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div id="loadMore">Toon meer tulpeninfo artikelen</div>
+    </section>
+</div>";s:4:"code";N;s:5:"title";s:9:"Home page";s:3:"url";s:1:"/";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";s:8:"child_of";s:13:"mey_no_parent";s:10:"hide_crumb";s:1:"0";s:18:"remove_crumb_trail";s:1:"0";s:14:"crumb_disabled";s:1:"0";s:9:"blogPosts";a:6:{s:10:"pageNumber";s:11:"{{ :page }}";s:12:"postsPerPage";s:3:"300";s:14:"noPostsMessage";s:14:"No posts found";s:9:"sortOrder";s:16:"published_at asc";s:12:"categoryPage";s:13:"blog/category";s:8:"postPage";s:14:"singlepostpage";}s:11:"yandexShare";a:34:{s:4:"bare";s:1:"0";s:7:"counter";s:1:"0";s:4:"copy";s:4:"last";s:9:"direction";s:10:"horizontal";s:15:"popup_direction";s:6:"bottom";s:14:"popup_position";s:5:"inner";s:4:"lang";s:2:"en";s:4:"size";s:1:"m";s:11:"collections";s:1:"0";s:9:"vkontakte";s:1:"0";s:8:"facebook";s:1:"1";s:13:"odnoklassniki";s:1:"0";s:6:"moimir";s:1:"0";s:5:"gplus";s:1:"0";s:9:"pinterest";s:1:"0";s:7:"twitter";s:1:"1";s:7:"blogger";s:1:"0";s:9:"delicious";s:1:"0";s:4:"digg";s:1:"0";s:6:"reddit";s:1:"0";s:8:"evernote";s:1:"0";s:8:"linkedin";s:1:"0";s:2:"lj";s:1:"0";s:6:"pocket";s:1:"0";s:5:"qzone";s:1:"0";s:6:"renren";s:1:"0";s:9:"sinaWeibo";s:1:"0";s:11:"surfingbird";s:1:"0";s:12:"tencentWeibo";s:1:"0";s:6:"tumblr";s:1:"0";s:5:"viber";s:1:"0";s:8:"whatsapp";s:1:"0";s:5:"skype";s:1:"0";s:8:"telegram";s:1:"0";}}}

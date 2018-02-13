@@ -1,0 +1,14 @@
+/*------------------------------------*\
+    #CONTENT
+\*------------------------------------*/
+
+.content {
+margin-top: 210px;
+  @include mappy-bp($tablet){
+    margin-top: 300px;
+  }
+}
+
+.article__image{
+  width:100%;
+}

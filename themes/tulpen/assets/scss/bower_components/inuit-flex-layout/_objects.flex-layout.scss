@@ -1,0 +1,103 @@
+/*------------------------------------*\
+    #FLEX-LAYOUT
+\*------------------------------------*/
+
+/**
+ * Flex layout provides a modifier class for the inuitcss layout object letting
+ * layout-item share the same height on each row. It uses the flexbox property
+ * and gently falls back in IE9.
+ */
+
+
+
+
+
+/**
+ * Begin a flexbox layout group.
+ *
+ * 1. IE9 fallback.
+ */
+.#{$inuit-layout-namespace}layout--justified {
+    display: block; /* [1] */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    /**
+     * 1. Same height for layout-items.
+     */
+    .#{$inuit-layout-namespace}layout__item {
+
+        .#{$inuit-layout-namespace}layout--justified & {
+            display: flex; /* [1] */
+        }
+
+    }
+
+
+
+
+
+@if ($inuit-enable-layout--middle == true) {
+
+    /**
+     * Align layout items to the vertical centers of each other.
+     */
+
+    .#{$inuit-layout-namespace}layout--middle {
+
+        &.#{$inuit-layout-namespace}layout--justified {
+            align-items: center;
+        }
+
+    }
+
+}
+
+@if ($inuit-enable-layout--bottom == true) {
+
+    /**
+     * Align layout items to the vertical bottoms of each other.
+     */
+
+    .#{$inuit-layout-namespace}layout--bottom {
+
+        &.#{$inuit-layout-namespace}layout--justified {
+            align-items: flex-end;
+        }
+
+    }
+
+}
+
+@if ($inuit-enable-layout--right == true) {
+
+    /**
+     * Align layout items to the vertical bottoms of each other.
+     */
+
+    .#{$inuit-layout-namespace}layout--right {
+
+        &.#{$inuit-layout-namespace}layout--justified {
+            justify-content: flex-end;
+        }
+
+    }
+
+}
+
+@if ($inuit-enable-layout--center == true) {
+
+    /**
+     * Make the layout items fill up from the center outward.
+     */
+
+    .#{$inuit-layout-namespace}layout--center {
+
+        &.#{$inuit-layout-namespace}layout--justified {
+            justify-content: center;
+        }
+
+    }
+
+}

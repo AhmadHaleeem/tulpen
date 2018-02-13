@@ -1,0 +1,42 @@
+fields:
+    title:
+        label: Title
+        span: full
+        oc.commentPosition: ''
+        type: text
+    posterGroup:
+        label: 'Poster Group'
+        oc.commentPosition: ''
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: right
+        type: fileupload
+    poster:
+        label: Poster
+        oc.commentPosition: ''
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: left
+        type: fileupload
+    body:
+        label: Body
+        size: ''
+        oc.commentPosition: ''
+        span: full
+        type: richeditor
+    down_text:
+        label: 'Down Text'
+        oc.commentPosition: ''
+        span: left
+        type: text
+    slug:
+        label: Slug
+        span: right
+        oc.commentPosition: ''
+        type: text

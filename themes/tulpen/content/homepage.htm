@@ -1,0 +1,24 @@
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
+
+<div class="row">
+    {% for record in records %}
+    <div class="col-md-3" style="border: 2px solid #ccc; border-radius: 2%;padding: 0">
+        <div class="" style="padding: 10px">
+            <img style="display: inline-block;margin-top: -5px" src="themes/tulpen/assets/img/icon_tulip.gif">
+            <h2 style="color: #DA1B1B;display: inline-block;margin-top: 4px;margin-bottom: 8px; font-family: bold">{{ record.title }}</h2>
+        </div>
+        <img class="article__image" src="{{ record.poster.path }}">
+        <p style="margin-bottom: 4px">{{ record.down_text|raw}}</p>
+        <a data-pin-do="buttonPin" data-pin-tall="true" data-pin-custom="true" href="https://www.pinterest.com/pin/create/button/"><img src="themes/tulpen/assets/img/pintrest.png" height="46px" /></a>
+
+
+        {% else %}
+        <p class="no-data">{{ noRecordsMessage }}</p>
+        {% endfor %}
+    </div>
+</div>

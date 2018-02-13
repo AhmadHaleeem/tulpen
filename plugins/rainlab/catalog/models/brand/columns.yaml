@@ -1,0 +1,19 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+        invisible: true
+
+    name:
+        label: tiipiik.catalog::lang.brands.name
+
+    slug:
+        label: tiipiik.catalog::lang.brands.slug
+
+    published:
+        label: tiipiik.catalog::lang.brands.published
+        type: switch

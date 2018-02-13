@@ -1,0 +1,26 @@
+/*------------------------------------*\
+    #LISTS
+\*------------------------------------*/
+
+.list {
+    @extend .list-bare;
+}
+
+    .list li {
+        padding: $base-spacing-unit/2 0;
+        a {
+            color: #000;
+
+        }
+    }
+
+
+
+.list--bordered {
+    border-top: solid 1px #c0c0c0;
+    li {
+        border-bottom: solid 1px #c0c0c0;
+
+    }
+}
+

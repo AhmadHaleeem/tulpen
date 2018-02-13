@@ -1,0 +1,83 @@
+/*------------------------------------*\
+    #PAGE-HEAD
+\*------------------------------------*/
+
+
+/**
+ * The site’s main page-head can have two different states:
+ *
+ * 1) Regular page-head with no backgrounds or extra treatments; it just
+ *    contains the logo and nav.
+ * 2) A masthead that has a fluid-height (becoming fixed after a certain point)
+ *    which has a large background image, and some supporting text.
+ *
+ * The regular page-head is incredibly simple, but the masthead version has some
+ * slightly intermingled dependency with the wrapper that lives inside it.
+ */
+
+
+/**
+ * 1. A slightly smaller padding on smaller viewports.
+ * 2. Grow to full-sized padding on large enough viewports.
+ */
+.page-head {
+    position: fixed;
+    top:0px;
+    left:0px;
+    width: 100%;
+    background-color: white;
+    z-index: 10;
+
+}
+
+.header-container {
+    position: relative;
+    width: 100%;
+    height: 89px;
+    overflow: hidden;
+    text-align: center;
+    @include mappy-bp($tablet){
+        height: 179px;
+    }
+
+}
+
+.header-image{
+    height:100%;
+    width:auto!important;
+    max-width: none;
+    min-height: 89px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    @include mappy-bp($tablet){
+        height: auto;
+        min-height: 179px;
+        min-width:100%!important;
+
+
+    }
+}
+
+.header-text{
+    color: white;
+    font-family: Cookie, cursive;
+    @include font-size(25px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
+
+}
+
+.header__tulip-lady {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    height: 100%;
+}
+
+
+
+

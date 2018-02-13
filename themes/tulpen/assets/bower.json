@@ -1,0 +1,45 @@
+{
+  "name": "BEELDR_FRAMEWORK",
+  "description": "Development SCSS toolkit for BEELDR projects",
+  "main": "",
+  "authors": [
+    "Rommert van der Marel <rommert@beeldr.nl>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "scss/bower_components/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "inuit-block": "~0.1.2",
+    "inuit-box-sizing": "0.2.0",
+    "inuit-box": "~0.4.4",
+    "inuit-buttons": "~0.4.1",
+    "inuit-flex-layout": "^0.2.0",
+    "inuit-flag": "~0.3.2",
+    "inuit-headings": "~0.3.1",
+    "inuit-list-bare": "~0.3.0",
+    "inuit-list-block": "~0.4.2",
+    "inuit-list-inline": "^0.3.2",
+    "inuit-media": "~0.4.2",
+    "inuit-lists": "~0.1.0",
+    "inuit-normalize": "3.0.2",
+    "inuit-paragraphs": "~0.1.4",
+    "inuit-page": "0.2.1",
+    "inuit-print": "~0.0.2",
+    "inuit-reset": "~0.1.1",
+    "inuit-responsive-tools": "~0.1.1",
+    "inuit-spacing-responsive": "~0.0.8",
+    "inuit-shared": "~0.1.3",
+    "inuit-starter-kit": "~0.2.8",
+    "inuit-tables": "~0.2.1",
+    "inuit-widths-responsive": "~0.2.2",
+    "mappy-breakpoints": "~0.2.1"
+  }
+}

@@ -1,0 +1,77 @@
+title = "News"
+url = "/news/"
+layout = "AllPages"
+is_hidden = 0
+child_of = "home-page"
+hide_crumb = 0
+remove_crumb_trail = 0
+crumb_disabled = 0
+
+[newsPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 7
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+postPage = "news"
+postFeatured = 0
+
+[ssbuttonsssb]
+js = 1
+facebook = 1
+twitter = 1
+google+ = 0
+tumblr = 0
+pinterest = 0
+pocket = 0
+reddit = 0
+linkedin = 0
+wordpress = 0
+pinboard = 0
+email = 1
+order_facebook = 1
+order_twitter = 2
+order_google+ = 3
+order_tumblr = 4
+order_pinterest = 5
+order_pocket = 6
+order_reddit = 7
+order_linkedin = 8
+order_wordpress = 9
+order_pinboard = 10
+order_email = 11
+theme = "simple_icons"
+
+[breadcrumbs]
+main-ol-class = "breadcrumb"
+active-class = "active"
+disabled-class = "disabled"
+==
+{% set posts = newsPosts.posts %}
+
+<div class="container container-news">
+    {% component 'breadcrumbs' %}
+    <div class="well" {% if this.page.title == "News" %} style="border: 2px solid #00AB4A;background-color: #FFF"   {% endif %}>
+        <h2 class="news_title" {{ style }}>Nieuws</h2>
+        {% for post in posts %}
+        <div class="media">
+            <a class="pull-left" href="#">
+                {% if post.image %}<div class="post-image"><a href="/{{ postPage }}/{{ post.slug }}"><img  src="{{ post.image|media }}" alt="{{ post.title }}"></a></div>{% endif %}
+            </a>
+            <div class="media-body" >
+                <h4 class="media-heading"><a href="/{{ postPage }}/{{ post.slug }}">{{ post.title }}</a></h4>
+
+                {% if post.introductory %}
+                <div class="post-introductory">{{ str_limit(post.introductory|raw, 150) }}</div>
+                {% elseif post.content %}
+                <div class="post-content">{{ str_limit(post.content|raw, 150) }}</div>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="social">
+        {% component 'ssbuttonsssb' %}
+    </div>
+    {{ posts.render|raw }}
+    
+</div>

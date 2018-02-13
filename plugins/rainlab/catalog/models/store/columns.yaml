@@ -1,0 +1,25 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+        invisible: true
+    
+    name:
+        Label: tiipiik.catalog::lang.stores.name
+    
+    slug:
+        label: tiipiik.catalog::lang.stores.slug
+    
+    group:
+        label: tiipiik.catalog::lang.products.group
+        type: relation
+        select: name
+        sortable: false
+    
+    is_activated:
+        label: tiipiik.catalog::lang.stores.is_activated
+        type: switch
